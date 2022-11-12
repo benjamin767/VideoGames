@@ -65,7 +65,32 @@ module.exports = {
 			return videoName.includes(name);
 		});
 
-		if(!match.length) throw new Error("Videogame not found");
+		if(!match.length) throw new Error("Videogame not found.");
 		return match;
+	},
+
+	getVideogameByID: async (id)=>{
+		let videogame;
+		if(id.length < 10) {
+		 	videogame = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
+		 	if(videogame.data.detail) throw new Error(videogame.detail);
+		 	return videogame.data;
+		}
+		
+		videogame = await Videogame.findByPk(id,{
+			include:{
+				model: Genre,
+				attributes: ['name'],
+				through: {
+					attributes: []
+				}
+			},
+		});
+		if(!videogame) throw new Error("Not found.");
+		return videogames;
+		
+			
+		
+
 	},
 };
