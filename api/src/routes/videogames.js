@@ -3,7 +3,9 @@ const {
 	getVideogamesApi, 
 	getVideogamesDB,
 	getVideogamesByName, 
-	getVideogameByID,} = require('./controllers/VideoController');
+	getVideogameByID,
+	createVideogame,
+	getGenres,} = require('./controllers/VideoController');
 const router = Router();
 
 router.get("/", async (req,res) => {
@@ -30,6 +32,18 @@ router.get("/:id", async (req,res) => {
 		res.status(200).json(await getVideogameByID(id));
 	} catch (err){
 		res.status(404).json({error: err.message});
+	}
+});
+
+router.post("/", async (req,res) => {
+	const {name,description,released,rating,platform,genres} = req.body;
+	try{
+		let newVideogame = await createVideogame(name,description,released,rating,platform);
+		let genresDB = await getGenres(genres);
+		newVideogame.addGenres(genresDB);
+		res.status(201).json({detail: "was successfully created"});
+	} catch(err){
+		res.status(404).json({error: err.message})
 	}
 });
 

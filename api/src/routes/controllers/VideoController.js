@@ -2,6 +2,10 @@ const axios = require('axios');
 const { Videogame, Genre } = require('../../db');
 const { API_KEY } = process.env;
 
+function plataformsToMap(platforms){
+	return platforms.map(platform => platform.platform.name);
+}
+
 module.exports = {
 	getVideogamesApi: async ()=>{
 		try{
@@ -74,7 +78,16 @@ module.exports = {
 		if(id.length < 10) {
 		 	videogame = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
 		 	if(videogame.data.detail) throw new Error(videogame.detail);
-		 	return videogame.data;
+		 	return {
+		 		id: videogame.data.id,
+		 		name: videogame.data.name,
+		 		Genre: videogame.data.genres,
+		 		description: videogame.data.description,
+		 		released: videogame.data.released,
+		 		rating: videogame.data.rating,
+		 		platform: plataformsToMap(videogame.data.platforms),
+		 		img: videogame.data.background_image,
+		 	};
 		}
 		
 		videogame = await Videogame.findByPk(id,{
@@ -87,10 +100,33 @@ module.exports = {
 			},
 		});
 		if(!videogame) throw new Error("Not found.");
-		return videogames;
+		return videogame;	
 		
-			
-		
+	},
 
+	createVideogame : async (name,description,released,rating,platform)=>{
+		if(!name || !description || !released || !rating || !platform) throw new Error("insufficient arguments to create Videogame");
+		
+		let newVideogame = await Videogame.create({
+			name,
+			description,
+			released,
+			rating,
+			platform
+		});
+		
+		return newVideogame;
+	},
+
+	getGenres: async (genres) => {
+		if(!genres) throw new Error("insufficient arguments to create Videogame");
+		let genresDB = [];
+		for(let genre of genres){
+			[genre] = await Genre.findOrCreate({
+				where: {name: genre}
+			});
+			genresDB.push(genre);
+		}
+		return genresDB;
 	},
 };
