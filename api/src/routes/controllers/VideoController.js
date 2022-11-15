@@ -18,7 +18,9 @@ module.exports = {
 					api: true,
 					id: videogame.id,
 					name: videogame.name,
-					Genre: videogame.genres,
+					Genre: videogame.genres.map(genre => {
+						return {name: genre.name};
+					}),
 					img: videogame.background_image,
 				};
 			});
@@ -32,7 +34,9 @@ module.exports = {
 						api: true,
 						id: videogame.id,
 						name: videogame.name,
-						Genre: videogame.genres,
+						Genre: videogame.genres.map(genre => {
+							return {name: genre.name};
+						}),
 						img: videogame.background_image,
 					};
 				});
@@ -81,7 +85,9 @@ module.exports = {
 		 	return {
 		 		id: videogame.data.id,
 		 		name: videogame.data.name,
-		 		Genre: videogame.data.genres,
+		 		Genre: videogame.data.genres.map(genre => {
+					return {name: genre.name};
+				}),
 		 		description: videogame.data.description,
 		 		released: videogame.data.released,
 		 		rating: videogame.data.rating,
