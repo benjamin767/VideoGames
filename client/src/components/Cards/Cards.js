@@ -5,21 +5,21 @@ import React, { useEffect } from "react";
 import Spinner from '../Spinner/Spinner';
 
 function Cards() {
-  let dispatch = useDispatch();
+    let dispatch = useDispatch();
   
-  useEffect(() => {
-    dispatch(getAllVideogames());
-  }, [dispatch]);
-  const isLoading = useSelector(state => state.isLoading);
-  const videogames = useSelector(state => state.videogames);
+    useEffect(() => {
+      dispatch(getAllVideogames());
+    }, [dispatch]);
+    const isLoading = useSelector(state => state.isLoading);
+    const videogames = useSelector(state => state.videogames);
 
-  return (
-    <div >
+    return (
+     <div >
 
-      {isLoading ? <Spinner/> : videogames.map((videogame) => <Card key={videogame.id} pokemon={videogame}/>)}
+        {isLoading ? <Spinner/> : videogames.map((videogame) => <Card key={videogame.id} videogame={videogame}/>)}
 
-    </div>
-  );
+     </div>
+    );
 }
 
 export default Cards;

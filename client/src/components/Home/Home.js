@@ -4,7 +4,7 @@ import Cards from '../Cards/Cards';
 function Home() {
   return (
     <div >
-      <h1>Pokemons</h1>
+      <h1>Videogames</h1>
       <Cards/>
     </div>
   );

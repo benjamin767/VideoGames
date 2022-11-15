@@ -2,14 +2,15 @@ import axios from 'axios';
 import {
 	GET_ALL_VIDEOGAMES,
 	GET_VIDEOGAMES,
-	SET_LOADING,} from './actionsTypes' 
+	SET_LOADING,
+	GET_VIDEOGAME_DETAILS,} from './actionsTypes'; 
 
 export const getAllVideogames = () => async (dispatch)=>{
 	dispatch(setLoading(true));
 	try{
-		const allVideogames = await axios.get(`localhost:3001/videogames`);
-		const videogames = [...allVideogames];
-		dispatch({type: GET_ALL_VIDEOGAMES, payload: allVideogames});
+		const allVideogames = await axios.get(`http://localhost:3001/videogames`);
+		const videogames = [...allVideogames.data];
+		dispatch({type: GET_ALL_VIDEOGAMES, payload: allVideogames.data});
 		dispatch({type: GET_VIDEOGAMES, payload: videogames});
 	} catch(err){
 		console.log(err);
@@ -22,4 +23,16 @@ export const setLoading = boolLoading => dispatch => {
 		type: SET_LOADING,
 		payload: boolLoading,
 	});
+};
+
+export const getVideoDetails = (id) => async (dispatch) => {
+	dispatch(setLoading(true));
+	try{
+		let videoDetail = await axios.get(`http://localhost:3001/videogames/${id}`);
+		console.log(videoDetail.data);
+		dispatch({type: GET_VIDEOGAME_DETAILS, payload: videoDetail.data});
+	}catch(err){
+		console.log(err);
+	}
+	dispatch(setLoading(false));
 };
