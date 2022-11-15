@@ -1,0 +1,4 @@
+export const GET_ALL_VIDEOGAMES = "GET_ALL_VIDEOGAMES";
+export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
+export const SET_LOADING = "SET_LOADING";
+
