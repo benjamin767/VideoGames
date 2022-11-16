@@ -3,7 +3,8 @@ import {
 	GET_ALL_VIDEOGAMES,
 	GET_VIDEOGAMES,
 	SET_LOADING,
-	GET_VIDEOGAME_DETAILS,} from './actionsTypes'; 
+	GET_VIDEOGAME_DETAILS,
+	GET_VIDEOGAME,} from './actionsTypes'; 
 
 export const getAllVideogames = () => async (dispatch)=>{
 	dispatch(setLoading(true));
@@ -30,6 +31,17 @@ export const getVideoDetails = (id) => async (dispatch) => {
 	try{
 		let videoDetail = await axios.get(`http://localhost:3001/videogames/${id}`);
 		dispatch({type: GET_VIDEOGAME_DETAILS, payload: videoDetail.data});
+	}catch(err){
+		console.log(err);
+	}
+	dispatch(setLoading(false));
+};
+
+export const getVideogame = (videogame) => async (dispatch)=>{
+	dispatch(setLoading(true));
+	try{
+		videogame = await axios.get(`http://localhost:3001/videogames?name=${videogame}`);
+		dispatch({type: GET_VIDEOGAME, payload: videogame.data});
 	}catch(err){
 		console.log(err);
 	}
