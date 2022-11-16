@@ -29,7 +29,6 @@ export const getVideoDetails = (id) => async (dispatch) => {
 	dispatch(setLoading(true));
 	try{
 		let videoDetail = await axios.get(`http://localhost:3001/videogames/${id}`);
-		console.log(videoDetail.data);
 		dispatch({type: GET_VIDEOGAME_DETAILS, payload: videoDetail.data});
 	}catch(err){
 		console.log(err);

@@ -8,7 +8,7 @@ import VideoDetails from '../VideoDetails/VideoDetails';
 function VideoDetailsContainer() {
 	let dispatch = useDispatch();
   	let { id } = useParams();
-  	useEffect((id) => {
+  	useEffect(() => {
     	dispatch(getVideoDetails(id));
   	}, [dispatch]);
   	const isLoading = useSelector(state => state.isLoading);
