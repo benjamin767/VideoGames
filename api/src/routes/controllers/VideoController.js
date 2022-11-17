@@ -6,6 +6,10 @@ function plataformsToMap(platforms){
 	return platforms.map(platform => platform.platform.name);
 }
 
+function capitalize(s){
+    return s[0].toUpperCase() + s.slice(1).toLowerCase();
+}
+
 module.exports = {
 	getVideogamesApi: async ()=>{
 		try{
@@ -114,7 +118,7 @@ module.exports = {
 
 	createVideogame : async (name,description,released,rating,platform)=>{
 		if(!name || !description || !released || !rating || !platform) throw new Error("insufficient arguments to create Videogame");
-		
+		name = capitalize(name);
 		let newVideogame = await Videogame.create({
 			name,
 			description,
