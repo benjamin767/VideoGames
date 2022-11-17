@@ -21,6 +21,7 @@ module.exports = {
 					Genre: videogame.genres.map(genre => {
 						return {name: genre.name};
 					}),
+					rating: videogame.rating,
 					img: videogame.background_image,
 				};
 			});
@@ -37,6 +38,7 @@ module.exports = {
 						Genre: videogame.genres.map(genre => {
 							return {name: genre.name};
 						}),
+						rating: videogame.rating,
 						img: videogame.background_image,
 					};
 				});
@@ -51,7 +53,7 @@ module.exports = {
 	getVideogamesDB: async ()=>{
 		try {
 			let videogames = await Videogame.findAll({
-				attributes: ['name','id'],
+				attributes: ['name','id', 'rating'],
 				include:{
 					model: Genre,
 					attributes: ['name'],
