@@ -3,4 +3,11 @@ export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
 export const SET_LOADING = "SET_LOADING";
 export const GET_VIDEOGAME_DETAILS = "GET_VIDEOGAME_DETAILS";
 export const GET_VIDEOGAME = "GET_VIDEOGAME";
+export const GET_GENRES = "GET_GENRES";
+export const EMPTY_DETAILS = "EMPTY_DETAILS";
+export const FILTER_BY = "FILTER_BY";
+export const FILTER_BY_GENRES = "FILTER_BY_GENRES";
+
+
+
 

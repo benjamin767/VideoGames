@@ -3,13 +3,18 @@ import {
 	GET_VIDEOGAMES,
 	SET_LOADING,
 	GET_VIDEOGAME_DETAILS,
-	GET_VIDEOGAME,} from '../actions/actionsTypes' 
+	GET_VIDEOGAME,
+	GET_GENRES,
+	EMPTY_DETAILS,
+	FILTER_BY,
+	FILTER_BY_GENRES,} from '../actions/actionsTypes' 
 
 const initialState = {
 	allVideogames: [],
 	videogames: [],
 	videoDetails: {},
 	isLoading: false,
+	genres: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -23,6 +28,14 @@ const rootReducer = (state = initialState, action) => {
 		case GET_VIDEOGAME_DETAILS:
 			return {...state, videoDetails: action.payload};
 		case GET_VIDEOGAME:
+			return {...state, videogames: action.payload};
+		case GET_GENRES:
+			return {...state, genres: action.payload};
+		case EMPTY_DETAILS:
+			return {...state, videoDetails: {}};
+		case FILTER_BY:
+			return {...state, videogames: action.payload};
+		case FILTER_BY_GENRES:
 			return {...state, videogames: action.payload};
 		default: return state;
 	}

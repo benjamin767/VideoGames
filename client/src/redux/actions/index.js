@@ -4,7 +4,11 @@ import {
 	GET_VIDEOGAMES,
 	SET_LOADING,
 	GET_VIDEOGAME_DETAILS,
-	GET_VIDEOGAME,} from './actionsTypes'; 
+	GET_VIDEOGAME,
+	GET_GENRES,
+	EMPTY_DETAILS,
+	FILTER_BY,
+	FILTER_BY_GENRES,} from './actionsTypes'; 
 
 export const getAllVideogames = () => async (dispatch)=>{
 	dispatch(setLoading(true));
@@ -39,6 +43,7 @@ export const getVideoDetails = (id) => async (dispatch) => {
 
 export const getVideogame = (videogame) => async (dispatch)=>{
 	dispatch(setLoading(true));
+	dispatch(emptyDetails());
 	try{
 		videogame = await axios.get(`http://localhost:3001/videogames?name=${videogame}`);
 		dispatch({type: GET_VIDEOGAME, payload: videogame.data});
@@ -46,4 +51,44 @@ export const getVideogame = (videogame) => async (dispatch)=>{
 		console.log(err);
 	}
 	dispatch(setLoading(false));
+};
+
+export const getGenres = () => async (dispatch)=>{
+	try{
+		let genres = await axios.get(`http://localhost:3001/genres`);
+		dispatch({type: GET_GENRES, payload: genres.data});
+	}catch(err){
+		console.log(err);
+	}
+};
+
+export const emptyDetails = () => {
+	return {type: EMPTY_DETAILS};
+};
+
+export const filterBy = (option,videogames) => {
+	if(option === "default") return {type: FILTER_BY, payload: videogames};
+	
+	if(option === "existing"){
+		videogames = videogames.filter(videogame => videogame.hasOwnProperty("api"));
+		return {type: FILTER_BY, payload: videogames};
+	}
+	videogames = videogames.filter(videogame => !videogame.hasOwnProperty("api"));
+	return {type: FILTER_BY, payload: videogames};
+};
+
+export const filterByGenres = (option,videogames) => {
+	if(option === "default") return {type: FILTER_BY_GENRES, payload: videogames};
+
+	videogames = videogames.filter(videogame => {
+		let flag = false;
+		for(let genre of videogame.Genre){
+			if(genre.name === option){
+				flag = true;
+				break;
+			}
+		}
+		if(flag) return videogame;
+	});
+	return {type: FILTER_BY_GENRES, payload: videogames};
 };

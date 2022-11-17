@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar.js';
+import Filters from '../Filters/Filters.js';
 import { getVideogame } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -13,6 +14,7 @@ function Nav() {
   return (
     <nav >
       <SearchBar onSearch={onSearch}/>
+      <Filters/>
       <Link to="/create"> <div>CREATE A VIDEOGAME</div> </Link>
     </nav>
   );

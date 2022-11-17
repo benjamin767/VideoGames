@@ -6,7 +6,7 @@ import Spinner from '../Spinner/Spinner';
 import VideoDetails from '../VideoDetails/VideoDetails';
 
 function VideoDetailsContainer() {
-	let dispatch = useDispatch();
+	const dispatch = useDispatch();
   	let { id } = useParams();
   	useEffect(() => {
     	dispatch(getVideoDetails(id));
