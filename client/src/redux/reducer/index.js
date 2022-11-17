@@ -7,7 +7,9 @@ import {
 	GET_GENRES,
 	EMPTY_DETAILS,
 	FILTER_BY,
-	FILTER_BY_GENRES,} from '../actions/actionsTypes' 
+	FILTER_BY_GENRES,
+	ORDER_ALPHABETICALLY,
+	ORDER_BY_RATING,} from '../actions/actionsTypes' 
 
 const initialState = {
 	allVideogames: [],
@@ -36,6 +38,10 @@ const rootReducer = (state = initialState, action) => {
 		case FILTER_BY:
 			return {...state, videogames: action.payload};
 		case FILTER_BY_GENRES:
+			return {...state, videogames: action.payload};
+		case ORDER_ALPHABETICALLY:
+			return {...state, videogames: action.payload};
+		case ORDER_BY_RATING:
 			return {...state, videogames: action.payload};
 		default: return state;
 	}

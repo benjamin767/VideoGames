@@ -7,6 +7,10 @@ export const GET_GENRES = "GET_GENRES";
 export const EMPTY_DETAILS = "EMPTY_DETAILS";
 export const FILTER_BY = "FILTER_BY";
 export const FILTER_BY_GENRES = "FILTER_BY_GENRES";
+export const ORDER_ALPHABETICALLY = "ORDER_ALPHABETICALLY";
+export const ORDER_BY_RATING = "ORDER_BY_RATING";
+
+
 
 
 

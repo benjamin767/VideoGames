@@ -8,7 +8,9 @@ import {
 	GET_GENRES,
 	EMPTY_DETAILS,
 	FILTER_BY,
-	FILTER_BY_GENRES,} from './actionsTypes'; 
+	FILTER_BY_GENRES,
+	ORDER_ALPHABETICALLY,
+	ORDER_BY_RATING,} from './actionsTypes'; 
 
 export const getAllVideogames = () => async (dispatch)=>{
 	dispatch(setLoading(true));
@@ -91,4 +93,27 @@ export const filterByGenres = (option,videogames) => {
 		if(flag) return videogame;
 	});
 	return {type: FILTER_BY_GENRES, payload: videogames};
+};
+
+export const orderAlphabetically = (option,videogames) => {
+	if(option === "default") return {type: ORDER_ALPHABETICALLY, payload: videogames};
+	let videogamesCopy = [...videogames]
+	videogamesCopy.sort(function (a, b) {
+  		if (a.name > b.name) return 1;
+  		if (a.name < b.name) return -1;
+  		return 0;
+	});
+	if(option === "upward") return {type: ORDER_ALPHABETICALLY, payload: videogamesCopy};
+	return {type: ORDER_ALPHABETICALLY, payload: videogamesCopy.reverse()};
+};
+
+export const orderByRating = (option,videogames) => {
+	if(option === "default") return {type: ORDER_BY_RATING, payload: videogames};
+	let videogamesCopy = [...videogames];
+	videogamesCopy.sort(function(a, b) {
+  		return a.rating - b.rating;
+	});
+	if(option === "max rating") return {type: ORDER_BY_RATING, payload: videogamesCopy};
+	if(option === "in rating") return {type: ORDER_BY_RATING, payload: videogamesCopy.reverse()};
+
 };
