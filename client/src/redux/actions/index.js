@@ -113,7 +113,7 @@ export const orderByRating = (option,videogames) => {
 	videogamesCopy.sort(function(a, b) {
   		return a.rating - b.rating;
 	});
-	if(option === "max rating") return {type: ORDER_BY_RATING, payload: videogamesCopy};
-	if(option === "in rating") return {type: ORDER_BY_RATING, payload: videogamesCopy.reverse()};
+	if(option === "max rating") return {type: ORDER_BY_RATING, payload: videogamesCopy.reverse()};
+	if(option === "min rating") return {type: ORDER_BY_RATING, payload: videogamesCopy};
 
 };
