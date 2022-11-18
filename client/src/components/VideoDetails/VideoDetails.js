@@ -1,6 +1,6 @@
 import React from 'react';
 
-function VideoDetails({details: {id,name,Genre,description,img,released,platform,rating}}) {
+function VideoDetails({details: {id,name,Genres,description,img,released,platform,rating}}) {
 	platform = platform && platform.toString();
 
 	return (
@@ -16,7 +16,7 @@ function VideoDetails({details: {id,name,Genre,description,img,released,platform
 			</div>
 			<div>
 				<h3>GENRES</h3>
-				{Genre ? <p>{Genre.map(genre => genre.name).toString()}</p>:<p>Cargando...</p>}
+				{Genres ? <p>{Genres.map(genre => genre.name).toString()}</p>:<p>Cargando...</p>}
 			</div>
 			<div>
 				<h3>RATING</h3>

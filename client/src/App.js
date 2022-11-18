@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import VideoDetailsContainer from './components/VideoDetailsContainer/VideoDetailsContainer';
 import NavBar from './components/NavBar/NavBar';
+import CreateVideogame from './components/CreateVideogame/CreateVideogame';
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
         exact
         path='/home/:id'
         component={VideoDetailsContainer}
+      />
+      <Route 
+        exact
+        path='/create'
+        component={CreateVideogame}
       />
     </>
   );
