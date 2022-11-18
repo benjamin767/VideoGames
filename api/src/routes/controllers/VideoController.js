@@ -22,7 +22,7 @@ module.exports = {
 					api: true,
 					id: videogame.id,
 					name: videogame.name,
-					Genre: videogame.genres.map(genre => {
+					Genres: videogame.genres.map(genre => {
 						return {name: genre.name};
 					}),
 					rating: videogame.rating,
@@ -39,7 +39,7 @@ module.exports = {
 						api: true,
 						id: videogame.id,
 						name: videogame.name,
-						Genre: videogame.genres.map(genre => {
+						Genres: videogame.genres.map(genre => {
 							return {name: genre.name};
 						}),
 						rating: videogame.rating,
@@ -91,7 +91,7 @@ module.exports = {
 		 	return {
 		 		id: videogame.data.id,
 		 		name: videogame.data.name,
-		 		Genre: videogame.data.genres.map(genre => {
+		 		Genres: videogame.data.genres.map(genre => {
 					return {name: genre.name};
 				}),
 		 		description: videogame.data.description,
