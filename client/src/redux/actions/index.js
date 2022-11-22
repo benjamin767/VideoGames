@@ -84,7 +84,7 @@ export const filterByGenres = (option,videogames) => {
 
 	videogames = videogames.filter(videogame => {
 		let flag = false;
-		for(let genre of videogame.Genre){
+		for(let genre of videogame.Genres){
 			if(genre.name === option){
 				flag = true;
 				break;

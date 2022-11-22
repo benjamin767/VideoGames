@@ -1,7 +1,7 @@
 
-function List({def, options, handler}) {
+function List({def, options, handler, name}) {
 	return (
-	<select name="types" className="types" onChange={handler}>
+	<select name={name} onChange={handler}>
     	<option value='default'>{def}</option>
     	{options && options.map((option,i) => <option key={i} value={option}>{option}</option>)}
     </select>

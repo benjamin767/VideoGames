@@ -14,16 +14,16 @@ function Filters() {
   	}, [dispatch]);
   	let genres = useSelector(state => state.genres).map(genre => genre.name);
   	let allVideogames = useSelector(state => state.allVideogames);
-  	const handlerFilter = (event)=> dispatch(filterBy(event.target.value, allVideogames));
-  	const handlerGenres = (event)=> dispatch(filterByGenres(event.target.value, allVideogames));
-  	const handlerAlphabet = (event)=> dispatch(orderAlphabetically(event.target.value, allVideogames));
-  	const handlerRating = (event)=> dispatch(orderByRating(event.target.value, allVideogames));
+  	const handleFilter = (event)=> dispatch(filterBy(event.target.value, allVideogames));
+  	const handleGenres = (event)=> dispatch(filterByGenres(event.target.value, allVideogames));
+  	const handleAlphabet = (event)=> dispatch(orderAlphabetically(event.target.value, allVideogames));
+  	const handleRating = (event)=> dispatch(orderByRating(event.target.value, allVideogames));
 	return(
 		<>
-			<List def="filter" options={["created", "existing"]} handler={handlerFilter}/>
-			<List def="genres" options={genres} handler={handlerGenres}/>
-			<List def="alphabet" options={["upward", "fall"]} handler={handlerAlphabet}/>
-			<List def="rating" options={["max rating", "min rating"]} handler={handlerRating}/>
+			<List def="filter" options={["created", "existing"]} handler={handleFilter}/>
+			<List def="genres" options={genres} handler={handleGenres}/>
+			<List def="alphabet" options={["upward", "fall"]} handler={handleAlphabet}/>
+			<List def="rating" options={["max rating", "min rating"]} handler={handleRating}/>
 		</>
 	);
 }
