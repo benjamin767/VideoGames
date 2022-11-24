@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './Paginated.module.css';
 
 export default function Paginated ({videogamesPage, videogames, paginated}){
 	const pageNumbers = [];
@@ -9,9 +10,9 @@ export default function Paginated ({videogamesPage, videogames, paginated}){
 
 	return (
 		<>
-			<ul>
+			<ul className={s.paginated}>
 				{pageNumbers.map(number => {
-					return <li key={number}>
+					return <li key={number} className={s.paginated__button}>
 						<button onClick={() => paginated(number)}>{number}</button>
 					</li>
 				})}

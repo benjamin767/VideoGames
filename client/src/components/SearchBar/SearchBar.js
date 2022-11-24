@@ -13,7 +13,7 @@ export default function SearchBar({onSearch}) {
 
         	<input
           		type="text"
-          		placeholder="Find your favorite videogame"
+          		placeholder="Videogame..."
         		value={videogame}
         		onChange={handerVideogame}
         	/>

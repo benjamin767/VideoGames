@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import Spinner from '../Spinner/Spinner';
 import Paginated from '../Paginated/Paginated';
+import s from './Cards.module.css';
 
 function Cards() {
     let dispatch = useDispatch();
@@ -24,15 +25,16 @@ function Cards() {
 
 
     return (
-     <div >
+    <>
+     <div className={s.cards}>
         {isLoading ? <Spinner/> : currentVideogames.map((videogame) => <Card key={videogame.id} videogame={videogame}/>)}
-
-        <Paginated 
+     </div>
+     {isLoading ? undefined : <Paginated 
             videogamesPage={videogamesPage}
             videogames={videogames.length}
             paginated={paginated}
-        />
-     </div>
+        />}
+     </>
     );
 }
 

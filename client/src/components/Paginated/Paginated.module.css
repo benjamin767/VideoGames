@@ -1,0 +1,10 @@
+.paginated {
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+}
+
+.paginated__button {
+    margin-inline: 2px;
+    margin-bottom: 10px;
+}

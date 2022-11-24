@@ -9,6 +9,7 @@ module.exports = {
 			genres = genres.data.results.map(genre => {
 				return {name: genre.name}
 			});
+			genres.push({name:"Other"});
 			let genresDB = [];
 			for(let genre of genres){
 				[genre] = await Genre.findOrCreate({
