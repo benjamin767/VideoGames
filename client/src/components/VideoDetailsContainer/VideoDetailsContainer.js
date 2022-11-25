@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from '../Spinner/Spinner';
 import VideoDetails from '../VideoDetails/VideoDetails';
+import s from './VideoDetailsContainer.module.css';
 
 function VideoDetailsContainer() {
 	const dispatch = useDispatch();
@@ -15,9 +16,9 @@ function VideoDetailsContainer() {
   	const videoDetails = useSelector(state => state.videoDetails);
 
 	return (
-    	<>
+    	<div className={s.videoDetailsContainer}>
       		{isLoading ? <Spinner/> : <VideoDetails details={videoDetails}/>}
-   		</>
+   		</div>
   	);
 }
 
