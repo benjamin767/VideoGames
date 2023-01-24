@@ -13,7 +13,7 @@ function Filters() {
     	dispatch(getGenres());
   	}, [dispatch]);
   	let genres = useSelector(state => state.genres).map(genre => genre.name);
-  	let allVideogames = useSelector(state => state.allVideogames);
+  	let allVideogames = useSelector(state => state.videogames);
   	const handleFilter = (event)=> dispatch(filterBy(event.target.value, allVideogames));
   	const handleGenres = (event)=> dispatch(filterByGenres(event.target.value, allVideogames));
   	const handleAlphabet = (event)=> dispatch(orderAlphabetically(event.target.value, allVideogames));

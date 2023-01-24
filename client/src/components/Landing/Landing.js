@@ -6,8 +6,8 @@ function Landing() {
     return (
     <>
       <h1>Welcome, find your favorite videogames</h1>
-      <Link to="/home"><div>INGRESAR</div></Link>
-      <img src={landing} alt="videogame.png"/>
+      <Link to="/home"><div>Get into</div></Link>
+      <div><img src={landing} alt="videogame.png"/></div>
     </>
   );
 }
