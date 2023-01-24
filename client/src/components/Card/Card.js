@@ -13,7 +13,7 @@ function Card({ videogame: {name, img, id, Genres} }) {
             src={img || imgVG} 
             alt="videogame img"
             className={s.card__img}/> </div>
-        <div className={s.card__genres}><span>{Genres.map(genre => genre.name).toString()}</span></div>
+        <div className={s.card__genres}><span>{Genres.map(genre => genre.name).join(", ")}</span></div>
       </section>
     </Link>
   );

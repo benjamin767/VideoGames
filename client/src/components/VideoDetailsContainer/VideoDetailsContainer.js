@@ -11,7 +11,7 @@ function VideoDetailsContainer() {
   	let { id } = useParams();
   	useEffect(() => {
     	dispatch(getVideoDetails(id));
-  	}, [dispatch]);
+  	}, [dispatch,id]);
   	const isLoading = useSelector(state => state.isLoading);
   	const videoDetails = useSelector(state => state.videoDetails);
 

@@ -13,7 +13,7 @@ function VideoDetails({details: {id,name,Genres,description,img,released,platfor
 	<><div className={s.videoDetails}>
 		<div className={s.videoDetails__title}><h2>{name}</h2></div>
 		<div className={s.videoDetails__img}>
-			<img src={img || videogameImg} />
+			<img src={img || videogameImg} alt="videogame-img" />
 		</div>
 		<div className={s.videoDetails__data}>
 			<h3>PLATFORM</h3>
