@@ -13,11 +13,12 @@ function Filters() {
     	dispatch(getGenres());
   	}, [dispatch]);
   	let genres = useSelector(state => state.genres).map(genre => genre.name);
-  	let allVideogames = useSelector(state => state.videogames);
+  	let allVideogames = useSelector(state => state.allVideogames);
+	let videogames = useSelector(state => state.videogames)
   	const handleFilter = (event)=> dispatch(filterBy(event.target.value, allVideogames));
   	const handleGenres = (event)=> dispatch(filterByGenres(event.target.value, allVideogames));
-  	const handleAlphabet = (event)=> dispatch(orderAlphabetically(event.target.value, allVideogames));
-  	const handleRating = (event)=> dispatch(orderByRating(event.target.value, allVideogames));
+  	const handleAlphabet = (event)=> dispatch(orderAlphabetically(event.target.value, videogames));
+  	const handleRating = (event)=> dispatch(orderByRating(event.target.value, videogames));
 	return(
 		<>
 			<List def="filter" options={["created", "existing"]} handler={handleFilter}/>

@@ -26,8 +26,15 @@ function Cards() {
 
     return (
     <>
+    {isLoading ? undefined : <Paginated 
+            videogamesPage={videogamesPage}
+            videogames={videogames.length}
+            paginated={paginated}
+        />}
      <div className={s.cards}>
-        {isLoading ? <Spinner/> : currentVideogames.map((videogame) => <Card key={videogame.id} videogame={videogame}/>)}
+        {isLoading ? <Spinner/> : currentVideogames ? 
+        currentVideogames.map((videogame) => <Card key={videogame.id} videogame={videogame}/>):
+         <h3>Not found</h3>}
      </div>
      {isLoading ? undefined : <Paginated 
             videogamesPage={videogamesPage}
