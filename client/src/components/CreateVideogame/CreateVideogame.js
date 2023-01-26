@@ -3,6 +3,7 @@ import List from '../List/List.js';
 import { getGenres } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import s from "./CreateVideogame.module.css"
 
 export function validate(state) {
 	let errors = {};
@@ -105,51 +106,48 @@ function CreateVideogame(){
 
 	return(
 		<>
-		<h2>Create Videogame</h2>
-		<form onSubmit={handleSubmit}>
-			<div>
-				<div> 
-					<label>Name: </label> 
-					<input type="text" name="name" value={state.name} onChange={handleChange}/> 
-					{errors.name && (<p>{errors.name}</p>)} 
+			<form onSubmit={handleSubmit} className={s.formRegister}>
+			<h3>Create Videogame</h3>
+				<div>
+						
+					<input className={s.controls} type="text" name="name" value={state.name} onChange={handleChange} placeholder="name..."/> 
+					{errors.name && (<p className={s.error}>{errors.name}</p>)} 
+					
+					<textarea className={s.controls} name="description" value={state.description} onChange={handleChange}
+					placeholder="description..."/> 
+					{errors.description && (<p className={s.error}>{errors.description}</p>)} 
+					
+					<div className={s.controls}> 
+						<label>Platforms: </label> 
+						<List def="Other" options={platformsOptions} handler={handlePlatform} name="platform"/>
+						{errors.platform && (<p className={s.error}>{errors.platform}</p>)} 
+						{state.platform.map((p,i) => <div key={i} className={s.selection}>
+							<p>{p}</p>
+							<button onClick={(event)=>handleDeletePlatform(event,p)}>x</button>
+						</div>)}
+					</div>
+					<div className={s.controls}> 
+						<label>Genres: </label> 
+						<List def="Other" options={genresOptions} handler={handleGenres} name="genres"/> 
+						{errors.genres && (<p className={s.error}>{errors.genres}</p>)} 
+						{state.genres.map((genre,i) => <div key={i} className={s.selection}>
+							<p>{genre}</p>
+							<button onClick={(event)=>handleDeleteGenre(event,genre)}>x</button>
+						</div>)}
+					</div>
+					
+					<input className={s.controls} type="number" name="rating" value={state.rating} onChange={handleChange}
+					placeholder="rating (1-5)..."/>
+					{errors.rating && (<p className={s.error}>{errors.rating}</p>)}  
+					
+					<label>Released</label> 
+					<input className={s.controls} type="date" name="released" value={state.released} onChange={handleChange}/> 
+					{errors.released && (<p className={s.error}>{errors.released}</p>)} 
+					
+					<input className={s.button} type="submit" value="CREATE"/>
+					{final && (<p className={s.error}>{final}</p>)}
 				</div>
-				<div> 
-					<label>Description: </label> 
-					<textarea name="description" value={state.description} onChange={handleChange}/> 
-					{errors.description && (<p>{errors.description}</p>)} 
-				</div>
-				<div> 
-					<label>Platforms: </label> 
-					<List def="Other" options={platformsOptions} handler={handlePlatform} name="platform"/>
-					{errors.platform && (<p>{errors.platform}</p>)} 
-					{state.platform.map((p,i) => <div key={i}>
-						<p>{p}</p>
-						<button onClick={(event)=>handleDeletePlatform(event,p)}>x</button>
-					</div>)}
-				</div>
-				<div> 
-					<label>Genres: </label> 
-					<List def="Other" options={genresOptions} handler={handleGenres} name="genres"/> 
-					{errors.genres && (<p>{errors.genres}</p>)} 
-					{state.genres.map((genre,i) => <div key={i}>
-						<p>{genre}</p>
-						<button onClick={(event)=>handleDeleteGenre(event,genre)}>x</button>
-					</div>)}
-				</div>
-				<div> 
-					<label>Rating: </label> 
-					<input type="number" name="rating" value={state.rating} onChange={handleChange}/>
-					{errors.rating && (<p>{errors.rating}</p>)}  
-				</div>
-				<div> 
-					<label>Released: </label> 
-					<input type="date" name="released" value={state.released} onChange={handleChange}/> 
-					{errors.released && (<p>{errors.released}</p>)} 
-				</div>
-				<input type="submit" value="CREATE"/>
-				{final && (<p>{final}</p>)}
-			</div>
-		</form>
+			</form>
 		</>
 	);
 }

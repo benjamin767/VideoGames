@@ -7,8 +7,6 @@ function createMarkup(content) {
 }
 
 function VideoDetails({details: {id,name,Genres,description,img,released,platform,rating}}) {
-	platform = platform && platform.toString();
-
 	return (
 	<><div className={s.videoDetails}>
 		<div className={s.videoDetails__title}><h2>{name}</h2></div>
@@ -17,9 +15,9 @@ function VideoDetails({details: {id,name,Genres,description,img,released,platfor
 		</div>
 		<div className={s.videoDetails__data}>
 			<h3>PLATFORM</h3>
-			<p>{platform}</p>
+			{platform && <p>{platform.join(", ")}</p>}
 			<h3>GENRES</h3>
-			{Genres && <p>{Genres.map(genre => genre.name).toString()}</p>}
+			{Genres && <p>{Genres.map(genre => genre.name).join(", ")}</p>}
 			<h3>RATING</h3>
 			<p>{rating}</p>
 			<h3>RELEASED</h3>
