@@ -11,9 +11,11 @@ export default function Paginated ({videogamesPage, videogames, paginated}){
 	return (
 		<>
 			<ul className={s.paginated}>
-				{pageNumbers.map(number => {
-					return <li key={number} className={s.paginated__button}>
-						<button onClick={() => paginated(number)}>{number}</button>
+				{pageNumbers.map((number) => {
+					return <li key={number}>
+						<button 
+						onClick={() => paginated(number)}
+						className={`${s.paginated__button}`}>{number}</button>
 					</li>
 				})}
 			</ul>
