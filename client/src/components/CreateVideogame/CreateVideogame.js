@@ -145,7 +145,7 @@ function CreateVideogame(){
 					{errors.released && (<p className={s.error}>{errors.released}</p>)} 
 					
 					<input className={s.button} type="submit" value="CREATE"/>
-					{final && (<p className={s.error}>{final}</p>)}
+					{final && (<span>{final}</span>)}
 				</div>
 			</form>
 		</>
