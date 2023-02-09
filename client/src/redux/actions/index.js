@@ -15,7 +15,7 @@ import {
 export const getAllVideogames = () => async (dispatch)=>{
 	dispatch(setLoading(true));
 	try{
-		const allVideogames = await axios.get(`http://localhost:3001/videogames`);
+		const allVideogames = await axios.get(`/videogames`);
 		const videogames = [...allVideogames.data];
 		dispatch({type: GET_ALL_VIDEOGAMES, payload: allVideogames.data});
 		dispatch({type: GET_VIDEOGAMES, payload: videogames});
@@ -35,7 +35,7 @@ export const setLoading = boolLoading => dispatch => {
 export const getVideoDetails = (id) => async (dispatch) => {
 	dispatch(setLoading(true));
 	try{
-		let videoDetail = await axios.get(`http://localhost:3001/videogames/${id}`);
+		let videoDetail = await axios.get(`/videogames/${id}`);
 		dispatch({type: GET_VIDEOGAME_DETAILS, payload: videoDetail.data});
 	}catch(err){
 		console.log(err);
@@ -47,7 +47,7 @@ export const getVideogame = (videogame) => async (dispatch)=>{
 	dispatch(setLoading(true));
 	dispatch(emptyDetails());
 	try{
-		videogame = await axios.get(`http://localhost:3001/videogames?name=${videogame}`);
+		videogame = await axios.get(`/videogames?name=${videogame}`);
 		dispatch({type: GET_VIDEOGAME, payload: videogame.data});
 	}catch(err){
 		console.log(err);
@@ -57,7 +57,7 @@ export const getVideogame = (videogame) => async (dispatch)=>{
 
 export const getGenres = () => async (dispatch)=>{
 	try{
-		let genres = await axios.get(`http://localhost:3001/genres`);
+		let genres = await axios.get(`/genres`);
 		dispatch({type: GET_GENRES, payload: genres.data});
 	}catch(err){
 		console.log(err);

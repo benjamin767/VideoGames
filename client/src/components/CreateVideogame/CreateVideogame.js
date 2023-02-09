@@ -92,7 +92,7 @@ function CreateVideogame(){
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		axios.post(`http://localhost:3001/videogames`,{
+		axios.post(`/videogames`,{
 			name: state.name,
 			description: state.description,
 			genres: state.genres,
