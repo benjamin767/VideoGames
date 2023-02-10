@@ -6,8 +6,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import axios from 'axios';
+const url = process.env.REACT_APP_BACK_URL;
 
-axios.defaults.baseURL = "https://videogames-production-a579.up.railway.app";
+axios.defaults.baseURL = url;
 //axios.defaults.baseURL = "http://localhost:6170";
 
 ReactDOM.render(

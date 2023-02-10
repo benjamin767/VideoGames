@@ -91,6 +91,7 @@ export const filterByGenres = (option,videogames) => {
 			}
 		}
 		if(flag) return videogame;
+		return false;
 	});
 	return {type: FILTER_BY_GENRES, payload: videogames};
 };
