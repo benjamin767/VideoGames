@@ -16,7 +16,7 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - Filtrarlos / Ordenarlos
 - Agregar nuevos videojuegos
 
-__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en todos los request que hagamos a rawg simplemente agregando `?key={YOUR_API_KEY}` al final de cada endpoint. Agregar la clave en el archivo `.env` para que la misma no se suba al repositorio por cuestiones de seguridad y utilizarla desde allí.
+__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en el archivo `.env` como API_KEY=apikey. Reemplazar "apikey" por la api key que obtenga de rawg.
 
 ## Objetivos del Proyecto
 
@@ -66,5 +66,11 @@ DB_HOST=localhost
 Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
 
 Adicionalmente será necesario que creen desde psql una base de datos llamada `videogames`
+
+En `client` crear un archivo llamado: `.env` que tenga la siguiente forma:
+
+```env
+REACT_APP_BACK_URL=https://videogames-production-a579.up.railway.app
+```
 
 El contenido de `client` fue creado usando: Create React App.
