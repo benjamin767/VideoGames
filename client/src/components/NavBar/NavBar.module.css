@@ -1,7 +1,12 @@
+nav {
+    background: var(--blue);
+    width: 100%;
+}
+
 .navBar {
     padding: 20px;
     box-shadow: 0 5px 5px 0 var(--blue-light);
-    margin-bottom: 30px;
+    margin-bottom: 1px;
     display: flex;
     justify-content: space-around;
 }
@@ -10,7 +15,7 @@
     position: relative;
     font-size: 16px;
     font-weight: 500;
-    color: var(--blue-dark);
+    color: var(--blue-light);
 }
 
 .navBar__create::after {
@@ -22,7 +27,7 @@
     width: 100%;
     transform: scaleX(0);
     height: 2px;
-    background: var(--blue);
+    background: var(--blue-light);
     border-radius: 5px;
     transition: transform 250ms ease;
     transform-origin: right;

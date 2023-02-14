@@ -1,0 +1,5 @@
+.main h1 {
+    color: var(--blue-light);
+    padding: 20px 0 20px 135px;
+    font-family: monospace;
+}

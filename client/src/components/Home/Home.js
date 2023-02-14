@@ -1,13 +1,14 @@
 import React from "react";
 import Cards from '../Cards/Cards';
+import "./Home.css"
 
 function Home() {
 
   return (
-    <div >
+    <main className="main">
       <h1>Videogames</h1>
       <Cards/>
-    </div>
+    </main>
   );
 }
 

@@ -30,6 +30,7 @@ function Cards() {
             videogamesPage={videogamesPage}
             videogames={videogames.length}
             paginated={paginated}
+            currentPage={currentPage}
         />}
      <div className={s.cards}>
         {isLoading ? <Spinner/> : currentVideogames ? 
@@ -40,6 +41,7 @@ function Cards() {
             videogamesPage={videogamesPage}
             videogames={videogames.length}
             paginated={paginated}
+            currentPage={currentPage}
         />}
      </>
     );

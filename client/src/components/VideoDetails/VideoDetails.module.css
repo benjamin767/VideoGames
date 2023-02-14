@@ -7,6 +7,7 @@
     border-radius: .3rem;
     display: flex;
     flex-direction: column;
+    background: var(--blue);
 }
 
 .videoDetails__data {
@@ -15,7 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: var(--blue-dark);
+    background: var(--blue);
     color: var(--blue-light);
 }
 
@@ -29,13 +30,14 @@
     text-decoration: none;
     margin-block: 1rem;
     margin-inline: 20px;
-    color: var(--blue-dark);
+    color: var(--blue-light);
 }
 
 .videoDetails__description {
-    color: var(--blue-dark);
+    color: var(--blue-light);
     padding: 5px;
-    border: 1px solid var(--blue-dark);
+    border: 1px solid var(--blue-light);
     border-radius: 0 0 .3rem .3rem;
     text-align: center;
+    background: var(--blue-dark);
 }

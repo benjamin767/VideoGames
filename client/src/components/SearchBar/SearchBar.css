@@ -1,0 +1,31 @@
+.input_search {
+    height: 33px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    border-radius: 5px;
+}
+
+.input_search:focus {
+    background: var(--blue-dark);
+    color: var(--blue-light);
+    border: 1px solid var(--blue-light);
+}
+
+.input_btn {
+    background: #2b303b;
+    border: none;
+    height: 33px;
+    border-radius: 5px;
+    color: #63717f;
+    padding: 5px 10px;
+    margin-left: 3px;
+}
+
+.input_btn:hover {
+    background: var(--blue-dark);
+    color: var(--blue-light);
+}

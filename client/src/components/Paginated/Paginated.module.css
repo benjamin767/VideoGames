@@ -5,18 +5,19 @@
 }
 
 .paginated__button {
-    background-color: var(--blue-dark);
+    background-color: var(--blue);
     color: #eee;
     margin-bottom: 10px;
     font-size: 20px;
     padding: 0 10px;
     margin-inline: .5px;
     border: .5px solid var(--blue-dark);
-    transition: background-color .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .paginated__button:hover {
-    background-color: var(--blue);
+    background-color: var(--blue-light);
+    color: var(--blue-dark);
 }
 
 .active {

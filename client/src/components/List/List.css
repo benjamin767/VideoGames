@@ -1,0 +1,33 @@
+.select-css {
+    display: block;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    color: #444;
+    line-height: 1.3;
+    padding: .4em 1.4em .3em .8em; 
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0,0,0,.03);
+    border-radius: .3em;
+    background: transparent;
+    color: var(--blue-light);
+   }
+
+   .select-css::-ms-expand {
+    display: none;
+   }
+
+   .select-css:hover {
+    border-color: var(--blue-light);
+   }
+   .select-css:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: var(--blue-light); 
+    background: var(--blue-dark);
+    outline: none;
+   }
+   .select-css option {
+    font-weight:normal;
+   }
