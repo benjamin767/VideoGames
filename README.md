@@ -8,6 +8,16 @@
 
 Deploy: https://video-games-h4av.vercel.app/
 
+## Enunciado
+
+La idea general es crear una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con información relevante de los mismos utilizando la api externa [rawg](https://rawg.io/apidocs) y a partir de ella poder, entre otras cosas:
+
+- Buscar videjuegos
+- Filtrarlos / Ordenarlos
+- Agregar nuevos videojuegos
+
+__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en el archivo `.env` como API_KEY=apikey. Reemplazar "apikey" por la api key que obtenga de rawg.
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
@@ -57,14 +67,10 @@ Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credencial
 
 Adicionalmente será necesario que creen desde psql una base de datos llamada `videogames`
 
+En `client` crear un archivo llamado: `.env` que tenga la siguiente forma:
+
+```env
+REACT_APP_BACK_URL=https://videogames-production-a579.up.railway.app
+```
+
 El contenido de `client` fue creado usando: Create React App.
-
-## Enunciado
-
-La idea general es crear una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con información relevante de los mismos utilizando la api externa [rawg](https://rawg.io/apidocs) y a partir de ella poder, entre otras cosas:
-
-- Buscar videjuegos
-- Filtrarlos / Ordenarlos
-- Agregar nuevos videojuegos
-
-__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en todos los request que hagamos a rawg simplemente agregando `?key={YOUR_API_KEY}` al final de cada endpoint. Agregar la clave en el archivo `.env` para que la misma no se suba al repositorio por cuestiones de seguridad y utilizarla desde allí.
